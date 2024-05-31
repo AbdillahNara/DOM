@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volume Calculator</title>
+    <style>
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            margin-right: 10px;
+        }
+        .input-group input {
+            margin-right: 10px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Volume Calculator</h1>
+
+    <h2>Volume Balok</h2>
+    <div class="input-group">
+        <label for="panjangBalok">Panjang (cm):</label>
+        <input type="number" id="panjangBalok">
+        <label for="lebarBalok">Lebar (cm):</label>
+        <input type="number" id="lebarBalok">
+        <label for="tinggiBalok">Tinggi (cm):</label>
+        <input type="number" id="tinggiBalok">
+        <button onclick="hitungBalok()">Hitung Volume Balok</button>
+    </div>
+    <div id="volumeBalok"></div>
+
+    <h2>Volume Kubus</h2>
+    <div class="input-group">
+        <label for="sisiKubus">Sisi (cm):</label>
+        <input type="number" id="sisiKubus">
+        <button onclick="hitungKubus()">Hitung Volume Kubus</button>
+    </div>
+    <div id="volumeKubus"></div>
+
+    <h2>Volume Prisma Segitiga</h2>
+    <div class="input-group">
+        <label for="alasSegitiga">Alas Segitiga (cm):</label>
+        <input type="number" id="alasSegitiga">
+        <label for="tinggiSegitiga">Tinggi Segitiga (cm):</label>
+        <input type="number" id="tinggiSegitiga">
+        <label for="tinggiPrisma">Tinggi Prisma (cm):</label>
+        <input type="number" id="tinggiPrisma">
+        <button onclick="hitungPrismaSegitiga()">Hitung Volume Prisma Segitiga</button>
+    </div>
+    <div id="volumePrismaSegitiga"></div>
+
+    <script>
+        // Fungsi untuk menghitung volume balok
+        function hitungVolumeBalok(panjang, lebar, tinggi) {
+            return panjang * lebar * tinggi;
+        }
+
+        // Fungsi untuk menghitung volume kubus
+        function hitungVolumeKubus(sisi) {
+            return sisi * sisi * sisi;
+        }
+
+        // Fungsi untuk menghitung volume prisma segitiga
+        function hitungVolumePrismaSegitiga(alasSegitiga, tinggiSegitiga, tinggiPrisma) {
+            return (1/2 * alasSegitiga * tinggiSegitiga) * tinggiPrisma;
+        }
+
+        // Fungsi untuk menghitung dan menampilkan volume balok
+        function hitungBalok() {
+            const panjang = document.getElementById('panjangBalok').value;
+            const lebar = document.getElementById('lebarBalok').value;
+            const tinggi = document.getElementById('tinggiBalok').value;
+            const volume = hitungVolumeBalok(panjang, lebar, tinggi);
+            document.getElementById('volumeBalok').innerText = "Volume Balok: " + volume + " cm³";
+        }
+
+        // Fungsi untuk menghitung dan menampilkan volume kubus
+        function hitungKubus() {
+            const sisi = document.getElementById('sisiKubus').value;
+            const volume = hitungVolumeKubus(sisi);
+            document.getElementById('volumeKubus').innerText = "Volume Kubus: " + volume + " cm³";
+        }
+
+        // Fungsi untuk menghitung dan menampilkan volume prisma segitiga
+        function hitungPrismaSegitiga() {
+            const alas = document.getElementById('alasSegitiga').value;
+            const tinggiSegitiga = document.getElementById('tinggiSegitiga').value;
+            const tinggiPrisma = document.getElementById('tinggiPrisma').value;
+            const volume = hitungVolumePrismaSegitiga(alas, tinggiSegitiga, tinggiPrisma);
+            document.getElementById('volumePrismaSegitiga').innerText = "Volume Prisma Segitiga: " + volume + " cm³";
+        }
+    </script>
+</body>
+</html>
+
